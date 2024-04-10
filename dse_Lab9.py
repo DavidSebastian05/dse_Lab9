@@ -10,8 +10,13 @@ def encode(password):
         encodedPasswordList[i]= str(encodedPasswordList[i])
     return ''.join(encodedPasswordList)
 
+def decode(encodedPasswordList):
+    decoded_password = ""
+    for digit in encodedPasswordList:
+        new_digit = str((int(digit) - 3))
+        decoded_password += new_digit
 
-
+    return decoded_password
 
 def main():
         x=1
@@ -20,25 +25,19 @@ def main():
             print("-------------")
             print("1. Encode")
             print("2. Decode")
-            print("3. Quit")
-            userChoice = input("Please enter an option:")
+            print("3. Quit\n")
+            userChoice = input("Please enter an option: ")
             if userChoice == "1":
-                passwordStr = input("Please enter your password to encode:")
+                passwordStr = input("Please enter your password to encode: ")
                 password = list(passwordStr)
                 encodedPassword = encode(password)
-                print ("Your password has been encoded and stored!")
-                print(encodedPassword)
-           # if userChoice == "2":
-             #   decode()
+                print ("Your password has been encoded and stored!\n")
+                # print(encodedPassword)
+
+            if userChoice == "2":
+               print(f"The encoded password is {encodedPassword}, and the original password is {encodedPassword}.\n")
             if userChoice == "3":
                 x=2
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
